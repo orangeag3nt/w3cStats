@@ -1,10 +1,12 @@
 #pragma once
 #include <QString>
 #include <QSharedPointer>
+#include <QDateTime>
 
 struct Race
 {
 	enum Type {
+		Random = 0,
 		Human = 1,
 		Orc = 2,
 		Elf = 4,
@@ -19,6 +21,8 @@ struct Race
 	static QString toString(Race::Type t)
 	{
 		switch (t) {
+		case Random:
+			return "R";
 		case Human:
 			return "H";
 		case Orc:
@@ -36,17 +40,16 @@ struct Race
 struct Player
 {
 	QString name;
-	Race::Type race;
-	float bestMmr;
-
-	QString toString() const
-	{
-		return QString("%0 %1 (%2)").arg(name, Race::toString(race), QString::number((int)bestMmr));
-	}
+	Race::Type race = Race::Random;
+	Race::Type rndRace = Race::Random;
+	float oldMmr;
+	float mmrGain;
 };
 
 struct Game
 {
+	int lengthSeconds;
+	QDateTime startTime;
 	QString id;
 	QSharedPointer<Player> winner;
 	QSharedPointer<Player> loser;

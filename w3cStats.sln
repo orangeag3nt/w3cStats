@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "w3cStats", "w3cStats\w3cStats.vcxproj", "{E5DD7759-CC7D-47C3-9878-62CD1BE80573}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "w3cStatsDownloader", "w3cStatsDownloader\w3cStatsDownloader.vcxproj", "{3B9BF84C-44D2-4EF8-815E-119FE55E8375}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -15,6 +17,10 @@ Global
 		{E5DD7759-CC7D-47C3-9878-62CD1BE80573}.Debug|x64.Build.0 = Debug|x64
 		{E5DD7759-CC7D-47C3-9878-62CD1BE80573}.Release|x64.ActiveCfg = Release|x64
 		{E5DD7759-CC7D-47C3-9878-62CD1BE80573}.Release|x64.Build.0 = Release|x64
+		{3B9BF84C-44D2-4EF8-815E-119FE55E8375}.Debug|x64.ActiveCfg = Debug|x64
+		{3B9BF84C-44D2-4EF8-815E-119FE55E8375}.Debug|x64.Build.0 = Debug|x64
+		{3B9BF84C-44D2-4EF8-815E-119FE55E8375}.Release|x64.ActiveCfg = Release|x64
+		{3B9BF84C-44D2-4EF8-815E-119FE55E8375}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

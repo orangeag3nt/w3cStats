@@ -7,7 +7,7 @@
 #include "Storage.h"
 
 int MinGameLength = 2 * 60; //секунды
-int MinMmr = 2100; //ниже него вообще не учитываются игры
+int MinMmr = 2200; //ниже него вообще не учитываются игры
 int MmrDiff = 175; //если у победителя +столько относительно лузера, то такие победы не в счёт
 int TopMmr = 2350; //выше него не учитывается разница ммр
 
@@ -17,7 +17,7 @@ QMap<QString, int> _wins; //by races pair HE = H>E; EH = E>H etc
 
 QString playerKey(const QString& name, Race::Type race)
 {
-    return name + "_" + race;
+    return name + "_" + Race::toString(race);
 }
 
 QString playerKey(const QSharedPointer<Player>& player)
@@ -46,7 +46,7 @@ QSharedPointer<Player> getPlayer(const QString& name, Race::Type race, float mmr
 
 bool read()
 {
-    QFile f("D:/Download/w3c_s13_match_data.csv");
+    QFile f("E:/w3c_now.csv");
     if (!f.open(QIODevice::ReadOnly)) {
         qDebug() << f.errorString();
         return false;
@@ -97,8 +97,11 @@ bool read()
         float p2dmmr = lst.at(p2dmmrIndex).toFloat();
 
         Q_ASSERT(p1won != p2won);
-        Q_ASSERT(p1dmmr > 0);
-        Q_ASSERT(p2dmmr > 0);
+        //Q_ASSERT(p1dmmr >= 0);
+        //Q_ASSERT(p2dmmr >= 0);
+
+        if (p1dmmr < 0 || p2dmmr < 0) //есть забагованные игры типа https://www.w3champions.com/match/63fcf1780099e74f44bb1a4a
+            continue;
 
         if (p1won)
             p2dmmr = -p2dmmr;
@@ -131,11 +134,11 @@ int main(int argc, char *argv[])
         if (game->winner->bestMmr < MinMmr || game->loser->bestMmr < MinMmr)
             continue;
 
-        if (game->winner->bestMmr >= TopMmr && game->loser->bestMmr >= TopMmr) {
-            //учёт
-        } else if (game->winner->bestMmr - game->loser->bestMmr > MmrDiff) {
-            continue;
-        }
+        //if (game->winner->bestMmr >= TopMmr && game->loser->bestMmr >= TopMmr) {
+        //    //учёт
+        //} else if (game->winner->bestMmr - game->loser->bestMmr > MmrDiff) {
+        //    continue;
+        //}
 
         qDebug().noquote() << game->winner->toString() << " > " << game->loser->toString();
 

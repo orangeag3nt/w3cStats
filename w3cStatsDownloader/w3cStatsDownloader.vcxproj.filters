@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="code">
+      <UniqueIdentifier>{a60e7816-64ff-4812-bd8a-9f68d670bf62}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>code</Filter>
+    </ClCompile>
+    <ClCompile Include="CsvWriter.cpp">
+      <Filter>code</Filter>
+    </ClCompile>
+    <ClCompile Include="Storage.cpp">
+      <Filter>code</Filter>
+    </ClCompile>
+    <ClCompile Include="Worker.cpp">
+      <Filter>code</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CsvWriter.h">
+      <Filter>code</Filter>
+    </ClInclude>
+    <ClInclude Include="Storage.h">
+      <Filter>code</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Worker.h">
+      <Filter>code</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>
